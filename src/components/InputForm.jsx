@@ -3,12 +3,9 @@ import React, { useState } from 'react';
 import firebase from '../firebase';
 import { Formik, Form, Field } from "formik";
 import { withFormik} from "formik";
-import Yup from 'yup'
-import { TextField } from "@material-ui/core"
 import { useForm } from "react-hook-form";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, InputGroup, Input, Label, Button, FormGroup } from "reactstrap";
-import { onLog } from 'firebase';
 
 const InputForm = ({ getTodosFromFirestore }) => {
   const [title, setTitle] = useState('');
@@ -42,24 +39,26 @@ const InputForm = ({ getTodosFromFirestore }) => {
       <ul>
       <ol>
       <FormGroup>
-        <Label for="exampleEmail">歌った曲</Label>
+        <Label for="exampleEmail">タスク</Label>
         <Input 
         type="textarea" 
         name="text" 
         id="title" 
-        placeholder="タイトル/バンド名" 
+        rows="1"
+        placeholder="タスク" 
         onChange={e => setTitle(e.target.value)}
 　　　　　/>
       </FormGroup>
       </ol>
         <ol>
         <FormGroup>
-          <Label for="todo">コメント：</Label>
+          <Label for="todo">概要：</Label>
         <Input 
         type="textarea" 
         name="text" 
-        id="todo" 
-        onLog placeholder="感想コメント"
+        id="todo"
+        rows="10"
+        onLog placeholder="どのような作業内容なのか"
         value={todo}
         onChange={e => setTodo(e.target.value)}
         />

@@ -49,10 +49,10 @@ const Item = ({ index, todo, getTodosFromFirestore }) => {
           color="primary"
           onClick={e => deleteDataOnFirestore('todos', todo.id)}
         >delete</Button>
-        <p>歌った曲:{todo.data.title}</p>
-        <p>感想：{todo.data.todo}</p>
+        <p>タスク:{todo.data.title}</p>
+        <p>概要：{todo.data.todo}</p>
         
-        <p>日付：{convertFromTimestampToDatetime(todo.data.limit.seconds)}</p>
+        <p>デッドライン：{convertFromTimestampToDatetime(todo.data.limit.seconds)}</p>
         
       </ol>
   )
